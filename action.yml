@@ -1,14 +1,9 @@
-name: "Setup"
-description: "TODO"
+name: "setup"
+description: "Perform checkout and python setup for config repositories"
 inputs:
-  who-to-greet: # id of input
-    description: "Who to greet"
+  ref:
+    description: "Git ref to check out"
     required: true
-    default: "World"
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-number }}
 runs:
   using: "composite"
   steps:
@@ -21,7 +16,7 @@ runs:
       with:
         token: ${{ secrets.TOKEN }}
         fetch-depth: 0
-        ref: admintool/dev-live
+        ref: ${{ inputs.ref }} # Checkout by branch makes actions robust against reruns
         submodules: recursive
 
     - uses: actions/setup-python@v3
@@ -31,4 +26,7 @@ runs:
         cache-dependency-path: scripts/requirements.txt
 
     - run: pip install -r scripts/requirements.txt
+      shell: bash
+    
+    - run: git pull # Changes might have come in during python setup
       shell: bash
