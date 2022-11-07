@@ -2,6 +2,9 @@
 
 <br/>
 
+### `v5`
+- Bump `setup-python`
+
 ### `v4`, `latest`
 
 - Don't use pip cache
