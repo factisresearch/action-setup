@@ -2,6 +2,9 @@
 
 <br/>
 
+### `v6`
+- Bump `setup-python`
+
 ### `v5`
 - Bump `setup-python`
 
