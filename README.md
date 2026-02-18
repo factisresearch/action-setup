@@ -2,6 +2,9 @@
 
 <br/>
 
+### `v7`
+- Don't run `git pull` after installing python dependencies
+
 ### `v6`
 - Bump `setup-python`
 

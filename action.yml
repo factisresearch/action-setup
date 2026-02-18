@@ -35,6 +35,3 @@ runs:
 
     - run: pip install -r ${{ inputs.requirements_file }}
       shell: bash
-    
-    - run: git pull # Changes might have come in during python setup
-      shell: bash
